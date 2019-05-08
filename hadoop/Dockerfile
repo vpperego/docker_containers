@@ -16,6 +16,8 @@ RUN mkdir -p /opt && \
     ln -s hadoop-${HADOOP_VERSION} hadoop
 
 ENV HADOOP_HOME /opt/hadoop-${HADOOP_VERSION}
+ENV HADOOP_CONF_DIR $HADOOP_HOME/conf
+
 ENV CLASSPATH $CLASSPATH:$JAVA_HOME/lib:$JAVA_HOME/jre/lib
 ENV PATH $PATH:$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$PATH:$HADOOP_HOME/bin
 
@@ -23,3 +25,7 @@ ENV PATH $PATH:$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$PATH:$HADOOP_HOME/bin
 COPY core-site.xml  ${HADOOP_HOME}/conf/
 COPY hdfs-site.xml ${HADOOP_HOME}/conf/
 COPY mapred-site.xml ${HADOOP_HOME}/conf/
+COPY yarn-site.xml ${HADOOP_HOME}/conf/
+
+EXPOSE 22
+EXPOSE 9000

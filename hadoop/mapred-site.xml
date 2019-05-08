@@ -1,18 +1,6 @@
 <configuration>
-        <property>
-                <name>mapred.job.tracker</name>
-                <value>k8s-namenome:9001</value>
-        </property>
-</configuration>
-<configuration>
-        <property>
- <name>mapred.tasktracker.map.tasks.maximum</name>
- <value>7</value>
-        </property>
-</configuration>
-<configuration>
-        <property>
- <name>mapred.tasktracker.reduce.tasks.maximum</name>
- <value>3</value>
-        </property>
+    <property>
+        <name>mapreduce.framework.name</name>
+        <value>yarn</value>
+    </property>
 </configuration>
