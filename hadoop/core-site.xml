@@ -1,0 +1,11 @@
+<configuration>
+        <property>
+                <name>hadoop.tmp.dir</name>
+                <value>/opt/hadoop/data</value>
+        </property> 
+        <property>
+                <name>fs.default.name</name>
+                <!-- NameNode host -->
+                <value>hdfs://k8s-namenome:9000/</value>
+        </property>
+</configuration>
