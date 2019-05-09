@@ -22,10 +22,13 @@ ENV CLASSPATH $CLASSPATH:$JAVA_HOME/lib:$JAVA_HOME/jre/lib
 ENV PATH $PATH:$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$PATH:$HADOOP_HOME/bin
 
  
-COPY core-site.xml  ${HADOOP_HOME}/conf/
-COPY hdfs-site.xml ${HADOOP_HOME}/conf/
-COPY mapred-site.xml ${HADOOP_HOME}/conf/
-COPY yarn-site.xml ${HADOOP_HOME}/conf/
-
+COPY nn-core-site.xml /  
+COPY dn-core-site.xml /
+COPY hdfs-site.xml ${HADOOP_CONF_DIR}/
+COPY mapred-site.xml ${HADOOP_CONF_DIR}/
+COPY yarn-site.xml ${HADOOP_CONF_DIR}/
+COPY slaves ${HADOOP_CONF_DIR}/
 EXPOSE 22
 EXPOSE 9000
+EXPOSE 8020
+EXPOSE 50070
