@@ -3,7 +3,7 @@ FROM openjdk:8
 
 # define spark and hadoop versions
 ENV KAFKA_VERSION 2.2.0
-
+ENV KAFKA_ADVERTISED_LISTENERS PLAINTEXT://kafka-broker:9092
 
 # download and install spark
 RUN mkdir -p /opt && \
@@ -13,3 +13,5 @@ RUN mkdir -p /opt && \
     ln -s kafka_2.11-${KAFKA_VERSION}/ kafka
 ENV PATH $PATH:/opt/kafka/bin
 COPY server.properties /
+COPY start.sh /
+COPY new_start.sh /
