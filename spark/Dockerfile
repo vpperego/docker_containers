@@ -6,7 +6,8 @@ ENV SPARK_VERSION 2.3.3
 
 
 # download and install spark
-RUN mkdir -p /opt && \
+RUN mkdir -p /hadoop_conf && \
+    mkdir -p /opt && \
     cd /opt && \
     curl http://archive.apache.org/dist/spark/spark-${SPARK_VERSION}/spark-${SPARK_VERSION}-bin-hadoop2.7.tgz | \
         tar -zx && \
@@ -15,6 +16,10 @@ RUN mkdir -p /opt && \
 
 ENV PATH $PATH:/opt/spark/bin
 ENV SPARK_HOME=/opt/spark
+ENV HADOOP_CONF_DIR /hadoop_conf
+
+
+COPY hadoop_conf/ /hadoop_conf
 COPY spark-master /
 COPY spark-worker /
 COPY spark-master-batch /
