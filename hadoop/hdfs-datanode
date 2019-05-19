@@ -1,0 +1,8 @@
+mv dn-core-site.xml ${HADOOP_CONF_DIR}/core-site.xml
+
+if [ -z "$(ls -A /opt/hadoop/data))" ]; then
+   echo "Formating datanode"
+   $HADOOP_HOME/bin/hadoop datanode -format $CLUSTER_NAME
+fi
+
+$HADOOP_HOME/bin/hdfs --config $HADOOP_CONF_DIR datanode

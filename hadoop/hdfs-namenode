@@ -1,0 +1,7 @@
+echo "$(hostname -i)  hdfs-namenode" >> /etc/hosts
+ mv dn-core-site.xml  ${HADOOP_CONF_DIR}/core-site.xml ;
+if [ -z "$(ls -A /opt/hadoop/name)" ]; then
+   echo "Formating namenode"
+   $HADOOP_HOME/bin/hadoop namenode -format $CLUSTER_NAME;
+fi
+$HADOOP_HOME/bin/hdfs --config $HADOOP_CONF_DIR namenode
