@@ -18,7 +18,7 @@ ENV PATH $PATH:/opt/spark/bin
 ENV SPARK_HOME=/opt/spark
 ENV HADOOP_CONF_DIR /hadoop_conf
 
-
+COPY spark-defaults.conf /opt/spark/conf
 COPY hadoop_conf/ /hadoop_conf
 COPY spark-master /
 COPY spark-worker /
