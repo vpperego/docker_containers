@@ -2,7 +2,7 @@
 FROM openjdk:8
 
 # define spark and hadoop versions
-ENV SPARK_VERSION 2.3.3
+ENV SPARK_VERSION 3.0.1
 
 
 # download and install spark
