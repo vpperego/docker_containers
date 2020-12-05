@@ -14,4 +14,5 @@ ENV PATH $PATH:/opt/kafka/bin
 COPY server.properties /
 COPY startup.sh /
 RUN chmod +x /startup.sh
-ENTRYPOINT exec ./startup.sh
+# ENTRYPOINT exec ./startup.sh
+CMD ["./startup.sh"]
